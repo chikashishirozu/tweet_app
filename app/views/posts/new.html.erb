@@ -1,0 +1,28 @@
+<!-- app/views/posts/new.html.erb -->
+<div class="main posts-new">
+<%= form_with(model: @post, local: true) do |form| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <ul>
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <h2 id="shinkiyuza02">新しい投稿</h2>
+  <div class="my-field">
+    <%= form.label :title, class: "my-label" %>
+    <%= form.text_field :title, class: "post-new-title" %>
+  </div>    
+  <div class="my-form">    
+    <%= form.label :content, class: "my-label" %>
+    <%= form.text_area :content, class: "post-new" %>
+  </div>
+  <div>
+    <%= form.submit "投稿する", class: "my-button" %>
+  </div>
+<% end %>
+</div>

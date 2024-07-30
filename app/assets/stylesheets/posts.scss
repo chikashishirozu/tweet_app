@@ -1,0 +1,193 @@
+/* posts/index ================================ */
+.posts-index-item {
+  padding: 20px 30px;
+  background-color: white;
+  overflow: hidden;
+  box-shadow: 0 2px 6px #c1ced7;
+}
+
+.post-left img {
+  width: 50px;
+  height: 50px;
+  border-radius: 40%;
+  box-shadow: 0 2px 6px #c1ced7;
+  object-fit: cover;
+}
+
+.post-user-name a {
+  font-weight: 600;
+}
+
+.post-user-name a:hover {
+  color: #3ecdc6;
+}
+
+.post-left {
+  float: left;
+  width: 10%;
+}
+
+.post-right {
+  float: left;
+  width: 90%;
+  padding-left: 25px;
+  text-align: left;
+}
+
+/* posts/show ================================ */
+.posts-show form {
+  display: inline;
+}
+
+.posts-show-item {
+  padding: 30px;
+  background-color: white;
+  box-shadow: 0 2px 6px #c1ced7;
+  overflow: hidden;
+}
+
+.posts-show-item img {
+  width: 60px;
+  height: 60px;
+  border-radius: 40%;
+  box-shadow: 0 2px 6px #c1ced7;
+  vertical-align: middle;
+  object-fit: cover;
+}
+
+.posts-show-item .post-user-name a {
+  vertical-align: middle;
+  font-size: 24px;
+  margin-left: 15px;
+}
+
+.posts-show-item p {
+  font-size: 24px;
+  margin: 20px 0;
+}
+
+.post-time {
+  color: #8899a6;
+  margin-bottom: 10px;
+}
+
+.post-menus {
+  float: right;
+}
+
+.post-menus a, .post-menus input {
+  color: #8899a6;
+  text-decoration: underline;
+  font-size: 14px;
+}
+
+/* posts/new ================================ */
+.posts-new-title {
+  width:300px;
+  height: 70px;
+  border-radius: 5px;    
+}
+
+
+.posts-new textarea {
+  font-size: 20px;
+  padding: 10px;
+  width: 360px;
+  min-height: 460px;
+  padding-bottom: 50px;
+  border-radius: 5px;  
+  border: 1px solid rgb(216, 218, 223);
+  resize: both;
+}
+
+.posts-edit-title {
+  width:300px;
+  height: 70px;
+  border-radius: 5px;    
+}
+
+.posts-edit textarea {
+  font-size: 20px;
+  padding: 10px;
+  width: 360px;
+  min-height: 460px;
+  padding-bottom: 50px;
+  border-radius: px;  
+  border: 1px solid rgb(216, 218, 223);
+  resize: both;
+}
+
+.posts-new textarea::-webkit-input-placeholder {
+  font-size: 24px;
+  opacity: 0.5;
+}
+
+h2#shinkiyuza {
+  text-align: center;
+  font-size: 2rem;
+  padding-top: 110px;
+  margin-bottom: 20px;
+  color: #00008b;
+}
+
+h2#shinkiyuza02 {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 0;
+  font-size: 2rem;
+  color: #00008b;
+}
+
+.button-group {
+  margin: 20px 20px 20px 20px;
+  display: inline-block;
+}
+
+.my-button {
+  padding: 10px 40px;
+  margin: 20px 0 0 225px;
+  margin-bottom: 30px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.my-button:hover {
+  background-color: #0056b3;
+}
+
+.my-button-02 {
+  padding: 10px 40px;
+  margin: 20px 5px 0 5px;
+  margin-bottom: 30px;
+  background-color: #ff4500;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.my-button-02:hover {
+  background-color: #ff7f50;
+}
+
+.my-lavel {
+  width: 300px;
+  height: 12px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+#my-form {
+  min-width: 100%;
+  min-height: 100%; 
+  border-radius: 8px; 
+}
+
+.posts-new {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  padding-bottom: 150px;
+  justify-content: safe center;
+}
