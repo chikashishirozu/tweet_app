@@ -3,7 +3,9 @@
     "@hotwired/stimulus": "^3.0.0",
     "@hotwired/turbo-rails": "^7.0.0",
     "@rails/ujs": "^6.0.0",
-    "jquery": "^3.6.0"
+    "jquery": "^3.6.0",
+    "lodash": "^4.17.21",
+    "webpack": "^5.96.1"
   },
   "name": "tweet_app",
   "version": "1.0.0",
@@ -13,7 +15,9 @@
     "lib": "lib",
     "test": "test"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@babel/plugin-proposal-private-methods": "^7.18.6"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -239,3 +239,10 @@ header {
   font-size: 14px;
 }
 
+.main.top-main {
+  background-image: url('/assets/8eab4d858208.jpeg'); /* 画像のパス */
+  background-size: cover; /* 画像をコンテナ全体に広げてトリミング */
+  background-position: center; /* 中央に画像を配置 */
+  background-repeat: no-repeat; /* 繰り返しをしない */
+  height: 100vh; /* 高さをページ全体にする例 */
+}

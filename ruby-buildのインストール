@@ -1,0 +1,41 @@
+mkdir -p ~/.rbenv/plugins
+
+git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+
+eval "$(rbenv init -)"
+
+source ~/.bashrc
+
+gem install bundler --user-install
+
+echo 'export PATH="$HOME/.gem/ruby/$(ruby -e "puts RUBY_VERSION")/bin:$PATH"' >> ~/.bashrc
+
+source ~/.bashrc
+
+rbenv install 3.3.5
+
+# プロジェクト内で使用する場合
+echo "3.3.5" > .ruby-version
+
+# グローバルに設定する場合
+rbenv global 3.3.5
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+
+gem install rails
+
+bundle install
+
+rbenv init
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+
+evail "$(rbenv init -)"
+
+source ~/.basrrc
+
+sudo apt-get install -y build-essential libssl-dev libreadline-dev zlib1g-dev
+
+n@br2MmzXKQ4M
+
+

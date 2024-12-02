@@ -1,6 +1,8 @@
 # app/controllers/posts_controller.rb
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_post, only: [:edit, :update, :destroy, :show]
+  before_action :authorize_user!, only: [:edit, :update, :destroy]
   
   def index
     @posts = Post.order(created_at: :desc) # 投稿を新しい順に取得
@@ -11,7 +13,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params) # 現在のユーザーと紐付ける
     if @post.save
       redirect_to posts_path, notice: '投稿が作成されました'
     else
@@ -28,16 +30,11 @@ class PostsController < ApplicationController
   end
   
   def edit
+    # `set_post` が既に呼ばれているため、ここで再定義は不要
     logger.debug "Edit action called with params: #{params.inspect}"
-    @post = Post.find_by(id: params[:id])
-    unless @post
-      flash[:alert] = "指定された投稿は存在しません。"
-      redirect_to root_path
-    end
   end
 
   def update
-    @post = Post.find(params[:id])
     if @post.update(post_params)
       redirect_to posts_path, notice: '投稿が更新されました'
     else
@@ -46,7 +43,6 @@ class PostsController < ApplicationController
   end
   
   def destroy
-    @post = Post.find(params[:id])
     if @post.destroy
       redirect_to posts_path, notice: '投稿が削除されました'
     else
@@ -56,7 +52,23 @@ class PostsController < ApplicationController
 
   private
 
+  def authorize_user!
+    unless @post.user == current_user
+      flash[:alert] = '権限がありません。'
+      redirect_to posts_path
+    end
+  end
+
   def post_params
     params.require(:post).permit(:title, :content)
   end
+  
+  def set_post
+    @post = Post.find_by(id: params[:id])
+    unless @post
+      flash[:alert] = "指定された投稿は存在しません。"
+      redirect_to root_path
+    end
+  end  
 end
+
