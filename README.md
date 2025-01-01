@@ -90,9 +90,3 @@ If you get an error when running $ bundle install, check your Gemfile and instal
 Database errors
 If you get an error when running $ rails db:migrate, check your db/schema.rb and migration files.
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# tweet_app
