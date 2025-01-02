@@ -28,6 +28,17 @@ $ gem install bundler
 
 $ bundle install
 
+# Setting up a SQLite3 database
+Creating a database
+Create a database with the following command:
+
+$ rails db:create
+
+Run migration
+Reflect the schema defined in the model to the database:
+
+$ rails db:migrate
+
 $ rails console
 
 $ sqlite3 db/development.sqlite3
