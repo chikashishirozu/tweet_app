@@ -1,6 +1,7 @@
 // app/javascript/application.js
 
-import { Turbo } from "@hotwired/turbo-rails";
+import "@hotwired/turbo-rails"
+import "controllers"
 import { Application } from "@hotwired/stimulus";
 import Rails from '@rails/ujs';
 import $ from 'jquery'; // jQueryをインポート
@@ -14,5 +15,4 @@ window.Stimulus = application;
 
 export { application };
 
-import "@hotwired/turbo-rails"
-import "controllers"
+
