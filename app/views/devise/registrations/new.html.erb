@@ -1,5 +1,6 @@
 <!-- app/views/devise/registrations/new.html.erb -->
-<h2 id="shinkiyuza">新規ユーザー登録</h2>
+<div style="background-color: #E6E6FA; margin-top: 0; min-height: 500px;" class="main">
+<h1>新規ユーザー登録</h1>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.email_field :email, autofocus: true, placeholder: 'メールアドレス' %><br><br>
@@ -7,5 +8,7 @@
   <%= f.password_field :password_confirmation, autocomplete: 'new-password', placeholder: 'パスワード（確認用）' %><br><br>
   <%= f.submit '登録する', class: 'btn btn-primary' %>
 <% end %>
-
+<div style="background-color: #E6E6FA; margin: 50px 400px;">
 <%= render 'devise/shared/links' %>
+</div>
+</div>
