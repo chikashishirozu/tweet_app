@@ -9,16 +9,25 @@
         <p>作成日時: <%= post.created_at.in_time_zone('Tokyo').strftime('%Y年%m月%d日 %H:%M') %></p>
         <p>編集日時: <%= post.updated_at.in_time_zone('Tokyo').strftime('%Y年%m月%d日 %H:%M') %></p>
         <div class="button-group">
-          <%= link_to '編集', edit_post_path(post), class: 'my-button' %>
-          <%= link_to '削除', post, data: { turbo_method: :delete, confirm: '本当に削除しますか？' }, class: 'my-button-02' %>
-
+          <%= link_to '編集', edit_post_path(post), class: 'post-button02' %>
+          <%= link_to '記事詳細', post_path(post), data: { turbo_method: :show, confirm: '移動しますか？' }, class: 'post-button' %>
+          <%= link_to '削除', post, data: { 
+            "turbo-method": "delete", 
+            "turbo-confirm": "本当に削除しますか？" 
+          }, class: 'my-button-02' %>
         </div>
       </div>
     <% end %>
+    
+    <!-- ページネーション部分 -->
+    <div class="pagination-wrapper">
+      <%= paginate @posts %>
+    </div>    
+    
     <% flash.each do |message_type, message| %>
-  <div class="<%= message_type == 'notice' ? 'my-notice-class' : 'my-alert-class' %>">
-    <%= message %>
-  </div>
-<% end %>
+	  <div class="<%= message_type == 'notice' ? 'my-notice-class' : 'my-alert-class' %>">
+	    <%= message %>
+	  </div>
+	<% end %>
   </div>
 </div>
