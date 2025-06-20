@@ -37,6 +37,7 @@
 /* posts/show ================================ */
 .posts-show form {
   display: inline;
+  width: 1000px;
 }
 
 .posts-show-item {
@@ -78,75 +79,120 @@
 .post-menus a, .post-menus input {
   color: #8899a6;
   text-decoration: underline;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 /* posts/new ================================ */
-.posts-new-title {
-  width:300px;
-  height: 70px;
-  border-radius: 5px;    
+/* 投稿作成・編集フォーム */
+.post-form form {
+  max-width: 800px;
+  min-height: 1000px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #f9f9f9;
+  border: 1px solid #e1e5e9;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
+textarea#post_content.post-new {
+  font-size: 18px;
+  width: 100%;
+  height: 1000px;
+  min-height: 80%;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #f9f9f9;
+  border: solid 1px rgb(216, 218, 223);
+  border-radius: 8px;
+  background-color: #FFFFFF;  
+}
 
-.posts-new textarea {
+.post-form input {
+  font-size: 16px;
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+  border: solid 1px rgb(216, 218, 223);
+}
+
+.posts-new-title {
+  width: 90%;
+  height: 100px;
+  border-radius: 5px;
+  border: solid 1px rgb(216, 218, 223);
+  background-color: #FFFFFF;  
+}
+
+.post-label {
+  font-size: 27px;
+  margin: 20px auto 5px 2px;
+  color: #191970;
+}
+
+.posts-new {
   font-size: 20px;
   padding: 10px;
-  width: 360px;
-  min-height: 460px;
+  width: 100%;
+  min-width: 400px;
+  min-height: 800px;
   padding-bottom: 50px;
-  border-radius: 5px;  
+  border-radius: 7px;  
   border: 1px solid rgb(216, 218, 223);
   resize: both;
 }
 
 .posts-edit-title {
-  width:300px;
-  height: 70px;
-  border-radius: 5px;    
+  width: 90%;
+  height: 100px;
+  border-radius: 5px;
+  border: solid 1px rgb(216, 218, 223);
 }
 
-.posts-edit textarea {
+input {
+  background-color: white;
+}
+
+.posts-edit {
   font-size: 20px;
   padding: 10px;
-  width: 360px;
-  min-height: 460px;
+  width: 100%;
+  min-width: 400px;
+  min-height: 800px;
   padding-bottom: 50px;
-  border-radius: px;  
+  border-radius: 7px;  
   border: 1px solid rgb(216, 218, 223);
   resize: both;
-}
-
-.posts-new textarea::-webkit-input-placeholder {
-  font-size: 24px;
-  opacity: 0.5;
 }
 
 h2#shinkiyuza {
   text-align: center;
   font-size: 2rem;
   padding-top: 110px;
+  margin-top: 80px;  
   margin-bottom: 20px;
   color: #00008b;
 }
 
 h2#shinkiyuza02 {
   text-align: center;
-  margin-top: 30px;
-  margin-bottom: 0;
+  margin-top: 80px;
+  margin-bottom: 20px;
   font-size: 2rem;
   color: #00008b;
 }
 
 .button-group {
   margin: 20px 20px 20px 20px;
-  display: inline-block;
+  text-align: right;
 }
 
 .my-button {
-  padding: 10px 40px;
-  margin: 20px 0 0 225px;
-  margin-bottom: 30px;
+  font-size: 20px;
+  width: 60px;
+  height: 30px;
+  padding: 5px 11px;
+  margin: 10px;
   background-color: #007bff;
   color: white;
   border: none;
@@ -154,40 +200,95 @@ h2#shinkiyuza02 {
   cursor: pointer;
 }
 .my-button:hover {
-  background-color: #0056b3;
+  color: white;
+  background-color: #87CEEB;
 }
 
 .my-button-02 {
-  padding: 10px 40px;
-  margin: 20px 5px 0 5px;
-  margin-bottom: 30px;
-  background-color: #ff4500;
+  font-size: 20px;
+  width: 60px;
+  height: 30px;
+  padding: 5px 11px;
+  margin: 10px;
+  background-color: #FF0000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer; 
+}
+.my-button-02:hover {
+  color: white;
+  background-color: #FFA500;
+}
+
+.button-wrapper {
+  margin: 20px 0 20px 0;
+  text-align: right;
+}
+
+input.button {
+  font-size: 20px;
+  color: white;
+}
+
+.post-button form {
+  font-size: 30px;
+  width: 90px;
+  height: 50px;
+  padding: 5px 11px;
+  margin: 10px;
+  background-color: #007bff;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
-.my-button-02:hover {
-  background-color: #ff7f50;
+.post-button:hover form {
+  background-color: #0056b3;
+}
+
+.post-button02 form {
+  font-size: 30px;
+  width: 90px;
+  height: 50px;
+  padding: 5px 11px;
+  margin: 10px;
+  background-color: #32CD32;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.post-button-02:hover form {
+  background-color: #00FF7F;
+}
+
+.post-button03 form {
+  font-size: 20px;
+  width: 60px;
+  height: 30px;
+  padding: 5px 11px;
+  margin: 10px;
+  background-color: #FF0000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.post-button-03:hover form {
+  background-color: #FFA500;
 }
 
 .my-lavel {
   width: 300px;
-  height: 12px;
+  height: auto;
   padding: 10px;
   border: 1px solid #ccc;
 }
 
-#my-form {
-  min-width: 100%;
-  min-height: 100%; 
-  border-radius: 8px; 
-}
-
-.posts-new {
+.my-form {
   width: 100%;
   height: 100%;
-  border-radius: 8px;
-  padding-bottom: 150px;
-  justify-content: safe center;
 }
