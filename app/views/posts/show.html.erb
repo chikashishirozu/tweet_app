@@ -1,19 +1,15 @@
 <!-- show.html.erb -->
 <div class="main posts-show">
-  <h1 id="shinkiyuza02">投稿詳細</h1>
+  <h2 id="shinkiyuza02">投稿詳細</h2>
   <div class="container">
     <div class="posts-show-item">
       <h3 class="post-title"><%= @post.title %></h3>    
       <p class="post-content"><%= @post.content %></p>
       <p>作成日時: <%= @post.created_at.in_time_zone('Tokyo').strftime('%Y年%m月%d日 %H:%M') %></p>
       <p>編集日時: <%= @post.updated_at.in_time_zone('Tokyo').strftime('%Y年%m月%d日 %H:%M') %></p>
-      <div class="button-wrapper">
-        <%= link_to '編集', edit_post_path(@post), class: 'btn btn-success post-button-02' %>
-        <%= link_to '削除', post_path(@post), data: { 
-          "turbo-method": "delete", 
-          "turbo-confirm": "本当に削除しますか？" 
-        }, class: 'btn btn-danger post-button-03' %>    
-        <%= link_to '一覧に戻る', posts_path, class: 'btn btn-primary my-button' %>        
+      <div class="button-group">
+        <%= link_to '編集', edit_post_path(@post), class: 'my-button' %>
+        <%= link_to '削除', post_path(@post), method: :delete, data: { turbo_action: 'replace', confirm: '本当に削除しますか？' }, class: 'my-button-02' %>
       </div>
     </div>
   </div>

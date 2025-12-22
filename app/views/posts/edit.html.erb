@@ -1,6 +1,6 @@
 <!-- app/views/posts/edit.html.erb -->
-<div class="main post-form" style="min-height: 1000px;">
-  <%= form_with(model: @post, local: true, html: { class: "post-form-edit" }) do |form| %>
+<div class="main posts-edit">
+  <%= form_with(model: @post, local: true) do |form| %>
     <% if @post.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -12,17 +12,17 @@
       </div>
     <% end %>
     
-    <h1>編集する投稿</h1>
-    <div class="my-form">
-      <%= form.label :title, class: "post-label" %>
+    <h2 id="shinkiyuza02">編集する投稿</h2>
+    <div class="my-field">
+      <%= form.label :title, class: "my-label" %>
       <%= form.text_field :title, class: "post-edit-title" %>
     </div> 
     <div class="my-form">     
-      <%= form.label :content, class: "post-label" %><br />
+      <%= form.label :content, class: "my-label" %>
       <%= form.text_area :content, class: "posts-edit" %>
     </div>
-    <div class="button-wrapper">
-      <%= form.submit "更新する", class: "btn btn-success post-button02" %>
+    <div>
+      <%= form.submit "更新する", class: "my-button" %>
     </div>
   <% end %>
 </div>
