@@ -5,8 +5,13 @@ class PostsController < ApplicationController
   before_action :authorize_user!, only: [:edit, :update, :destroy]
   
   def index
-    @posts = Post.order(created_at: :desc) # 投稿を新しい順に取得
+    @posts = Post.order(created_at: :desc).page(params[:page]).per(10) # 投稿を新しい順に取得
+    # @posts = Post.page(params[:page]).per(10) # 10記事ずつ表示
   end
+  
+  def test
+    render :test
+  end  
 
   def new
     @post = Post.new
@@ -31,6 +36,8 @@ class PostsController < ApplicationController
   
   def edit
     # `set_post` が既に呼ばれているため、ここで再定義は不要
+    @post = Post.find(params[:id])
+    post = @post  # ローカル変数も設定    
     logger.debug "Edit action called with params: #{params.inspect}"
   end
 
@@ -43,10 +50,11 @@ class PostsController < ApplicationController
   end
   
   def destroy
+      @post = Post.find(params[:id])
     if @post.destroy
       redirect_to posts_path, notice: '投稿が削除されました'
     else
-      redirect_to posts_path, alert: '投稿の削除に失敗しました'
+      redirect_to posts_path(@post), alert: '投稿の削除に失敗しました'
     end
   end 
 
