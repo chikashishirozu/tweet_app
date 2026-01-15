@@ -20,7 +20,13 @@ echo "3.3.5" > .ruby-version
 # グローバルに設定する場合
 rbenv global 3.3.5
 
+rbenv local 4.0.1
+
 export PATH="$HOME/.rbenv/bin:$PATH"
+
+ruby -S bundle install
+
+gem install bundler
 
 gem install rails
 
