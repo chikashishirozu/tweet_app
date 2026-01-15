@@ -12,17 +12,25 @@ echo 'export PATH="$HOME/.gem/ruby/$(ruby -e "puts RUBY_VERSION")/bin:$PATH"' >>
 
 source ~/.bashrc
 
-rbenv install 3.3.5
+rbenv install 4.0.1
 
 # プロジェクト内で使用する場合
-echo "3.3.5" > .ruby-version
+echo "4.0.1" > .ruby-version
 
 # グローバルに設定する場合
-rbenv global 3.3.5
+rbenv global 4.0.1
 
 rbenv local 4.0.1
 
 export PATH="$HOME/.rbenv/bin:$PATH"
+
+which bundler
+
+mv /bin/bundler /bin/bundler.back
+
+rbenv refresh
+
+which bundler
 
 ruby -S bundle install
 
