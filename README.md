@@ -66,3 +66,9 @@ If you get an error when running $ bundle install, check your Gemfile and instal
 Database errors
 If you get an error when running $ rails db:migrate, check your db/schema.rb and migration files.
 
+# 🚀 次のステップ（余談）
+
+将来 CSS をモダン化したくなったら：
+
+bundle add cssbundling-rails
+rails css:install:tailwind
