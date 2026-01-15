@@ -1,10 +1,10 @@
 # README
-
+'''
 Install required dependencies
 Install Ruby and Rails
 Install Ruby
 Install the latest version of Ruby. Use rbenv or rvm for convenient version management. Here is an example of rbenv:
-
+'''
 # Install rbenv
 $ sudo dnf install rbenv ruby-build -y
 
