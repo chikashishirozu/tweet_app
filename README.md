@@ -77,4 +77,7 @@ If you get an error when running $ rails db:migrate, check your db/schema.rb and
 
 bundle add cssbundling-rails
 rails css:install:tailwind
+$ bundle install --quiet
+
+
 ```
