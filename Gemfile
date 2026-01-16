@@ -2,7 +2,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.4.2"
+ruby "4.0.1"
 
 gem 'bigdecimal'
 
@@ -12,7 +12,7 @@ gem 'mutex_m'
 
 gem 'devise'
 
-gem 'rails-ujs'
+gem "tsort"
 
 gem 'bootstrap', '~> 5.1.3'
 
