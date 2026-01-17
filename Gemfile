@@ -20,6 +20,8 @@ gem "sassc", "2.1.0"
 
 gem 'sassc-rails'
 
+# gem "propshaft"
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", ">= 8.0.1"
 
