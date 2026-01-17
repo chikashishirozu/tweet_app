@@ -11,8 +11,9 @@ $ sudo dnf install rbenv ruby-build -y
 ```
 # Install the latest Ruby
 ```
-$ rbenv install 3.3.6
-$ rbenv global 3.3.6
+$ rbenv install 4.0.1
+$ rbenv global 4.0.1
+$ rbenv init
 ```
 # Check the version of Ruby
 ```
