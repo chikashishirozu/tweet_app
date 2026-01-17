@@ -1,0 +1,147 @@
+/* app/assets/stylesheets/application.scss */
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap";
+@import "posts/index";
+@import "posts/show";
+@import "posts/form";
+
+/* 認証フォーム（ログイン、サインアップなど） */
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 0.3px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+form h2 {
+  text-align: center;
+  margin: 20px;
+  color: #191970;
+}
+
+form input[type="email"],
+form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+}
+
+form .btn-primary {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 3px;
+  color: white;
+}
+
+form .btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Links */
+form a {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  color: #007bff;
+  border-bottom: none;
+  text-decoration: none  
+}
+
+a {
+  border-bottom: none;
+  text-decoration: none; 
+}
+
+header {
+  background-color: #00bfff;
+  margin-top: 0;
+}
+
+h1 {
+  margin: 30px auto;
+  height: 30px;
+  font-weight: 500;
+  color: #00008b;
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.posts-index-item {
+  max-width: 1000px;
+  margin: 0 auto;
+
+  background-color: #f9fafb;
+  padding: 20px 30px;
+  border-radius: 12px;
+}
+
+.posts-show .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #e6e6fa;
+
+  display: flex;
+  justify-content: center;
+}
+
+.posts-show-item {
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 30px;
+
+  padding: 2.5rem;
+  border-radius: 12px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.post-content {
+  white-space: pre-wrap;
+  line-height: 1.7;
+  margin-top: 0.75rem;
+}
+
+.button-wrapper {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+a {
+  text-decoration: none !important;
+  font-weight: 500 !important;  
+}
