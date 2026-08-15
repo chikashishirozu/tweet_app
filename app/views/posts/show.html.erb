@@ -7,23 +7,16 @@
       <div class="post-content"><%= @post.content %><br /><br />
       <div>作成日時: <%= @post.created_at.in_time_zone('Tokyo').strftime('%Y年%m月%d日 %H:%M') %></div>
       <div>編集日時: <%= @post.updated_at.in_time_zone('Tokyo').strftime('%Y年%m月%d日 %H:%M') %></div>
-      <div class="button-wrapper">
-        <%= link_to '編集', edit_post_path(@post), class: 'btn btn-success post-button-02' %>
-        <!-- %= link_to '削除', post_path(@post), data: { 
-          "turbo-method": "delete", 
-          "turbo-confirm": "本当に削除しますか？" 
-        }, class: 'btn btn-danger post-button-03' % -->
-        <!-- %= link_to '削除', post_path(@post), 
-          method: :delete, 
-          data: { confirm: '本当に削除しますか？' }, 
-          class: 'my-button-02' % -->     
-        <%= button_to '削除', post_path(@post), 
-          method: :delete, 
-          onclick: "return confirm('本当に削除しますか？');",          
-          data: { confirm: '本当に削除しますか？' }, 
-          class: 'my-button-02' %>
-              <%= link_to '一覧に戻る', posts_path, class: 'btn btn-primary my-button' %>          
-      </div></div>
+      
+        <div class="button-wrapper">
+          <%= link_to '編集', edit_post_path(@post), class: 'my-button' %>
+          <%= button_to '削除', post_path(@post), 
+                method: :delete, 
+                onclick: "return confirm('本当に削除しますか？');",
+                class: 'my-button-02' %>
+          <%= link_to '一覧に戻る', posts_path, class: 'my-button' %>
+        </div>           
+      </div>
     </div>
   </div>
 </div>
