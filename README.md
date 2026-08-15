@@ -82,3 +82,54 @@ $ bundle install --quiet
 
 
 ```
+# 「vendor フォルダがない」という場合は、何を使って Rails を構築したかによって対応が変わります。
+
+まず確認したいのですが、次のどちらでしょうか？
+
+Rails 7 + Importmap を使っている
+Rails 7/8 + esbuild・Vite・Webpack を使っている
+もし Importmap を使っている場合
+
+通常は
+```
+vendor/javascript
+```
+が作成され、stimulus などのライブラリが入ります。
+
+もし存在しない場合は、ターミナルで
+```
+bin/rails importmap:install
+```
+を実行すると作成されます。
+
+もし esbuild や Vite を使っている場合
+
+この場合は vendor/javascript は不要です。
+
+ライブラリは
+
+node_modules/
+
+から読み込まれるため、vendor がなくても正常です。
+
+確認してほしいこと
+
+次のファイルがあるか教えてください。
+
+config/importmap.rb
+
+このファイルが
+
+ある → Importmap を使っています。
+ない → esbuild や Vite の可能性が高いです。
+
+また、次のコマンドの結果も分かると判断できます。
+```
+bin/rails -v
+```
+と
+```
+ls app/javascript
+```
+または、プロジェクトのディレクトリ構成（app/javascript、config の中身）が分かれば、次に何をすればよいか具体的に案内できます。
+
