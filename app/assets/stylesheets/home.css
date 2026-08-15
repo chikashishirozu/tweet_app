@@ -18,7 +18,7 @@ ul, li {
 a {
   text-decoration: none;
   color: #2d3133;
-  font-size: 14px;
+  font-size: 14px; 
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -36,36 +36,26 @@ form input[type="submit"] {
 }
 
 /* 共通レイアウト ================================ */
-body {
-  color: #2d3133;
-  background-color: #3ecdc6;
-  margin: 0;
-  min-height: 1vh;
-}
-
-.main {
-  position: absolute;
-  top: 64px;
-  width: 100%;
-  height: auto;
-  min-height: 100%;
-  background-color: #f5f8fa;
-}
-
 .container {
-  max-width: 600px;
-  margin: 60px auto;
+  max-width: 1000px;
+  margin: 60px auto !important;
+  display: flex;
+  justify-content: center;
   padding-left: 15px;
   padding-right: 15px;
-  clear: both;
+  background-color: transparent; /* application.cssの薄紫背景指定を打ち消す */
+  clear: both;  
 }
 
 /* ヘッダー ================================ */
 header {
   height: 64px;
-  position: absolute;
-  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
   width: 100%;
+  background-color: #00BFFF;
 }
 
 .header-logo {

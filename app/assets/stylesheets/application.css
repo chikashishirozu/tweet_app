@@ -1,77 +1,140 @@
-/* app/assets/stylesheets/application.scss */
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
+ * 読み込み順を明示的に制御しています。
+ * require_self を先に書くことで、このファイル自身の中身
+ * （下の @import "bootstrap" を含む）を最初に読み込み、
+ * その後で require_tree により home.css / index.css / show.css /
+ * form.css / theme.scss を読み込みます。
  *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ * これにより「Bootstrap → 独自スタイル」の順になり、
+ * 同じ詳細度のセレクタ（例: a タグ）は自然に独自スタイルが勝つようになります。
+ * !important に頼る必要はもうありません。
  *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
  *= require_self
- */
+ *= require_tree .
+*/
+
+/* ---- Bootstrap本体（Sass経由） ---- */
 @import "bootstrap";
+
+/* ---- Bootstrapの変数を上書きしたい場合はここに書く ----
+   例:
+   $primary: #3ecdc6;
+   上記のように @import "bootstrap" の "前" に変数を書くと、
+   Bootstrapの配色そのものをブランドカラーに寄せられます。
+   今回はレイアウト崩れを避けるため変数上書きはせず、
+   個別クラスの上書きのみで対応しています。
+*/
+
+/* ---- ページ固有パーツ ---- */
 @import "posts/index";
 @import "posts/show";
 @import "posts/form";
 
+/* ==========================================================
+   共通パーツの上書き（Bootstrapのデフォルトを綺麗に整える）
+   ========================================================== */
+
+/* リンクの共通スタイル。以前のように !important は不要。
+   home.css の "a" ルールより後にこちらが読み込まれるよう、
+   require_self を先頭に置いたことで解決しています。 */
+a {
+  text-decoration: none !important;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
+
+/* テーマ更新用 */
+body {
+  color: var(--text-color);
+  background-color: var(--body-bg);
+  margin: 0;
+  min-height: 1vh;
+}
+
+.main {
+  position: absolute;
+  top: 64px;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  background-color: var(--main-bg);
+}
+
 /* 認証フォーム（ログイン、サインアップなど） */
 form {
   max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border: 0.3px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
 form h2 {
   text-align: center;
-  margin: 20px;
+  margin: 0 0 24px;
   color: #191970;
+  font-weight: 600;
+}
+
+form label {
+  font-size: 14px;
+  color: #57575f;
+  margin-bottom: 4px;
+  display: block;
 }
 
 form input[type="email"],
-form input[type="password"] {
+form input[type="password"],
+form input[type="text"] {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #d8dadf;
+  border-radius: 8px;
   background-color: white;
+  font-size: 15px;
 }
 
-form .btn-primary {
+form input[type="email"]:focus,
+form input[type="password"]:focus,
+form input[type="text"]:focus {
+  outline: none;
+  border-color: #3ecdc6;
+  box-shadow: 0 0 0 3px rgba(62, 205, 198, 0.15);
+}
+
+form .btn-primary,
+form input[type="submit"] {
   width: 100%;
-  padding: 10px;
-  background-color: #007bff;
+  padding: 12px;
+  background-color: #3ecdc6;
   border: none;
-  border-radius: 3px;
+  border-radius: 8px;
   color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
 }
 
-form .btn-primary:hover {
-  background-color: #0056b3;
+form .btn-primary:hover,
+form input[type="submit"]:hover {
+  background-color: #33b0aa;
 }
 
-/* Links */
+/* フォーム内のリンク（パスワード再設定リンクなど） */
 form a {
   display: block;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 12px;
   color: #007bff;
-  border-bottom: none;
-  text-decoration: none  
 }
 
-a {
-  border-bottom: none;
-  text-decoration: none; 
+form a:hover {
+  color: #0056b3;
 }
 
 header {
@@ -98,50 +161,35 @@ h1 {
 }
 
 .posts-index-item {
-  max-width: 1000px;
-  margin: 0 auto;
-
-  background-color: #f9fafb;
-  padding: 20px 30px;
-  border-radius: 12px;
-}
-
-.posts-show .container {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  background-color: #e6e6fa;
 
-  display: flex;
-  justify-content: center;
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
 }
 
-.posts-show-item {
-  width: 100%;
-  max-width: 1000px;
-  margin-top: 30px;
-
-  padding: 2.5rem;
-  border-radius: 12px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
+.posts-index-item p {
+  white-space: pre-wrap;
+  font-size: 1.25rem;
+  line-height: 1.7;
 }
 
 .post-content {
   white-space: pre-wrap;
   line-height: 1.7;
-  margin-top: 0.75rem;
+  margin-top: 1.05rem;
 }
 
 .button-wrapper {
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
-  margin-top: 1.5rem;
+  padding-top: 0 !important; 
+  margin-top: 30px !important;    
 }
 
-a {
-  text-decoration: none !important;
-  font-weight: 500 !important;  
+.theme-switcher {
+  margin: 16px;
 }
